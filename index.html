@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kişisel Web Sitesi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-image: url('rimuru.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            width: auto;
+            max-width: 90%;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            width: auto;
+            min-width: 200px;
+            padding: 10px 15px;
+            background-color: rgba(20, 20, 30, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .button:hover {
+            background-color: rgba(40, 40, 60, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .button i {
+            font-size: 18px;
+            margin-right: 12px;
+            color: #a0a0ff;
+            width: 18px;
+            text-align: center;
+        }
+
+        .button span {
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .name-container {
+            margin-top: 15px;
+            position: relative;
+        }
+
+        .name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px rgba(160, 160, 255, 0.7);
+            position: relative;
+            z-index: 1;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .name::before {
+            content: "Emrecan Nergiz";
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            color: transparent;
+            background: linear-gradient(45deg, #ff0080, #7928ca, #ff4d4d, #ff0080);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 8px rgba(160, 160, 255, 0.7),
+                             0 0 15px rgba(160, 160, 255, 0.5);
+            }
+            to {
+                text-shadow: 0 0 12px rgba(160, 160, 255, 0.9),
+                             0 0 20px rgba(160, 160, 255, 0.7),
+                             0 0 30px rgba(160, 160, 255, 0.5);
+            }
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .name {
+            animation: fadeIn 1.5s ease-out, glow 2s ease-in-out infinite alternate;
+        }
+
+        /* Solo Leveling Sistem Arayüzü Penceresi */
+        .system-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 10px;
+        }
+
+        .system-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .system-window {
+            width: 100%;
+            height: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            background: linear-gradient(135deg, rgba(10, 10, 20, 0.95), rgba(20, 20, 40, 0.9));
+            border: 2px solid rgba(160, 160, 255, 0.5);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(160, 160, 255, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .system-modal.active .system-window {
+            transform: scale(1);
+        }
+
+        .system-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: rgba(30, 30, 60, 0.8);
+            border-bottom: 1px solid rgba(160, 160, 255, 0.3);
+        }
+
+        .system-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: #a0a0ff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(160, 160, 255, 0.5);
+        }
+
+        .close-btn {
+            width: 25px;
+            height: 25px;
+            background-color: rgba(160, 160, 255, 0.2);
+            border: 1px solid rgba(160, 160, 255, 0.5);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background-color: rgba(255, 100, 100, 0.3);
+            border-color: rgba(255, 100, 100, 0.7);
+            transform: rotate(90deg);
+        }
+
+        .close-btn i {
+            font-size: 14px;
+        }
+
+        .system-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        /* Hakkımda Penceresi */
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(50, 50, 70, 0.5);
+            border: 2px solid rgba(160, 160, 255, 0.3);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .profile-info {
+            width: 100%;
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .info-item {
+            flex: 1;
+            padding: 8px;
+            background-color: rgba(30, 30, 50, 0.5);
+            border-radius: 5px;
+            border-left: 2px solid rgba(160, 160, 255, 0.5);
+            margin-right: 8px;
+        }
+
+        .info-item:last-child {
+            margin-right: 0;
+        }
+
+        .info-label {
+            color: #a0a0ff;
+            font-weight: bold;
+            font-size: 0.8rem;
+            margin-bottom: 3px;
+        }
+
+        .info-value {
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+
+        .stats-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stats-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: #a0a0ff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(160, 160, 255, 0.3);
+            padding-bottom: 3px;
+        }
+
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .stat-box {
+            width: calc(50% - 5px);
+            padding: 10px;
+            background-color: rgba(30, 30, 50, 0.5);
+            border-radius: 6px;
+            border: 1px solid rgba(160, 160, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            border-color: rgba(160, 160, 255, 0.5);
+            box-shadow: 0 0 8px rgba(160, 160, 255, 0.2);
+        }
+
+        .stat-name {
+            color: #a0a0ff;
+            font-weight: bold;
+            margin-bottom: 3px;
+            font-size: 0.8rem;
+        }
+
+        .stat-value {
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .stat-bar {
+            height: 6px;
+            background-color: rgba(50, 50, 70, 0.5);
+            border-radius: 3px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+
+        .stat-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #7928ca, #a0a0ff);
+            border-radius: 3px;
+            width: 75%;
+            animation: fillAnimation 2s ease-in-out;
+        }
+
+        @keyframes fillAnimation {
+            from {
+                width: 0;
+            }
+        }
+
+        .bio-section {
+            padding: 10px;
+            background-color: rgba(30, 30, 50, 0.5);
+            border-radius: 6px;
+            border: 1px solid rgba(160, 160, 255, 0.2);
+            margin-bottom: 15px;
+        }
+
+        .bio-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: #a0a0ff;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bio-text {
+            color: #ffffff;
+            line-height: 1.4;
+            font-size: 0.85rem;
+        }
+
+        /* Sosyal Medya Penceresi */
+        .social-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .social-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: #a0a0ff;
+            text-align: center;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(160, 160, 255, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .social-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .social-button {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: rgba(30, 30, 50, 0.5);
+            border: 1px solid rgba(160, 160, 255, 0.2);
+            border-radius: 8px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-button:hover {
+            background-color: rgba(40, 40, 70, 0.7);
+            border-color: rgba(160, 160, 255, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(160, 160, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .social-icon i {
+            font-size: 20px;
+        }
+
+        .instagram-icon {
+            color: #E1306C;
+        }
+
+        .discord-icon {
+            color: #7289DA;
+        }
+
+        .twitter-icon {
+            color: #1DA1F2;
+        }
+
+        .mail-icon {
+            color: #EA4335;
+        }
+
+        .social-info {
+            flex: 1;
+        }
+
+        .social-name {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .social-desc {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Hobiler ve Oyunlar Penceresi */
+        .hobbies-tabs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(160, 160, 255, 0.3);
+        }
+
+        .hobby-tab {
+            flex: 1;
+            padding: 10px 5px;
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: rgba(160, 160, 255, 0.7);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .hobby-tab.active {
+            color: #a0a0ff;
+            border-bottom: 2px solid #a0a0ff;
+        }
+
+        .hobby-tab:hover {
+            color: #ffffff;
+        }
+
+        .hobby-content {
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .hobby-content.active {
+            display: flex;
+        }
+
+        .hobby-item {
+            background-color: rgba(30, 30, 50, 0.5);
+            border: 1px solid rgba(160, 160, 255, 0.2);
+            border-radius: 8px;
+            padding: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .hobby-item:hover {
+            border-color: rgba(160, 160, 255, 0.5);
+            box-shadow: 0 0 10px rgba(160, 160, 255, 0.2);
+        }
+
+        .hobby-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .hobby-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(160, 160, 255, 0.2);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .hobby-icon i {
+            font-size: 20px;
+            color: #a0a0ff;
+        }
+
+        .hobby-title {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .hobby-subtitle {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .hobby-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .hobby-tag {
+            padding: 4px 8px;
+            background-color: rgba(160, 160, 255, 0.2);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: #a0a0ff;
+        }
+
+        .hobby-description {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .hobby-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .rating-star {
+            color: #ffd700;
+            font-size: 0.9rem;
+            margin-right: 2px;
+        }
+
+        .rating-text {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-left: 5px;
+        }
+
+        .hobby-media {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .media-thumbnail {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(50, 50, 70, 0.5);
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .media-thumbnail:hover {
+            transform: scale(1.05);
+        }
+
+        .media-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .media-badge {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            font-size: 0.7rem;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        /* Resim Lightbox */
+        .lightbox-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 20px;
+        }
+
+        .lightbox-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(160, 160, 255, 0.5);
+            border: 2px solid rgba(160, 160, 255, 0.3);
+        }
+
+        .lightbox-caption {
+            margin-top: 15px;
+            color: #ffffff;
+            font-size: 1rem;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(160, 160, 255, 0.2);
+            border: 1px solid rgba(160, 160, 255, 0.5);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background-color: rgba(255, 100, 100, 0.3);
+            border-color: rgba(255, 100, 100, 0.7);
+            transform: rotate(90deg);
+        }
+
+        /* Boş alan - gelecekte eklenecek içerik için */
+        .empty-section {
+            flex: 1;
+            min-height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px dashed rgba(160, 160, 255, 0.3);
+            border-radius: 6px;
+            padding: 10px;
+            color: rgba(160, 160, 255, 0.5);
+            font-style: italic;
+            font-size: 0.8rem;
+        }
+
+        /* Sistem efekti - animasyonlu parçacıklar */
+        .system-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: rgba(160, 160, 255, 0.5);
+            border-radius: 50%;
+            animation: float 10s infinite linear;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Masaüstü için stiller */
+        @media (min-width: 769px) {
+            .button-container {
+                gap: 25px;
+                margin-bottom: 40px;
+            }
+            
+            .button {
+                min-width: 250px;
+                padding: 15px 25px;
+                border-radius: 10px;
+            }
+            
+            .button i {
+                font-size: 24px;
+                margin-right: 15px;
+                width: 24px;
+            }
+            
+            .button span {
+                font-size: 18px;
+            }
+            
+            .name-container {
+                margin-top: 30px;
+            }
+            
+            .name {
+                font-size: 2.5rem;
+                letter-spacing: 3px;
+            }
+            
+            .system-modal {
+                padding: 0;
+            }
+            
+            .system-window {
+                width: 90%;
+                height: 90%;
+                max-width: none;
+                max-height: none;
+            }
+            
+            .system-header {
+                padding: 15px 20px;
+            }
+            
+            .system-title {
+                font-size: 1.5rem;
+                letter-spacing: 2px;
+            }
+            
+            .close-btn {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .close-btn i {
+                font-size: 16px;
+            }
+            
+            .system-content {
+                padding: 20px;
+                overflow: hidden;
+            }
+            
+            .profile-section {
+                flex-direction: row;
+                margin-bottom: 20px;
+            }
+            
+            .profile-image {
+                width: 180px;
+                height: 180px;
+                margin-right: 20px;
+                margin-bottom: 0;
+            }
+            
+            .profile-img {
+                border-radius: 8px;
+            }
+            
+            .info-row {
+                margin-bottom: 15px;
+            }
+            
+            .info-item {
+                padding: 10px;
+                margin-right: 10px;
+                border-left-width: 3px;
+            }
+            
+            .info-label {
+                font-size: 0.9rem;
+                margin-bottom: 5px;
+            }
+            
+            .info-value {
+                font-size: 1.1rem;
+            }
+            
+            .stats-title {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+                padding-bottom: 5px;
+            }
+            
+            .stats-container {
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .stat-box {
+                width: calc(50% - 10px);
+                padding: 15px;
+                border-radius: 8px;
+            }
+            
+            .stat-name {
+                font-size: 0.9rem;
+                margin-bottom: 5px;
+            }
+            
+            .stat-value {
+                font-size: 1.3rem;
+            }
+            
+            .stat-bar {
+                height: 8px;
+                margin-top: 8px;
+                border-radius: 4px;
+            }
+            
+            .stat-fill {
+                border-radius: 4px;
+            }
+            
+            .bio-section {
+                padding: 15px;
+                border-radius: 8px;
+                margin-bottom: 20px;
+            }
+            
+            .bio-title {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+            
+            .bio-text {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+            
+            .social-title {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+                padding-bottom: 15px;
+            }
+            
+            .social-button {
+                padding: 20px;
+            }
+            
+            .social-icon {
+                width: 50px;
+                height: 50px;
+                margin-right: 20px;
+            }
+            
+            .social-icon i {
+                font-size: 24px;
+            }
+            
+            .social-name {
+                font-size: 1.2rem;
+                margin-bottom: 5px;
+            }
+            
+            .social-desc {
+                font-size: 0.9rem;
+            }
+            
+            .hobbies-tabs {
+                margin-bottom: 20px;
+            }
+            
+            .hobby-tab {
+                padding: 12px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .hobby-item {
+                padding: 15px;
+            }
+            
+            .hobby-header {
+                margin-bottom: 15px;
+            }
+            
+            .hobby-icon {
+                width: 50px;
+                height: 50px;
+                margin-right: 15px;
+            }
+            
+            .hobby-icon i {
+                font-size: 24px;
+            }
+            
+            .hobby-title {
+                font-size: 1.2rem;
+            }
+            
+            .hobby-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .hobby-details {
+                gap: 10px;
+                margin-bottom: 15px;
+            }
+            
+            .hobby-tag {
+                padding: 5px 10px;
+                font-size: 0.8rem;
+            }
+            
+            .hobby-description {
+                font-size: 0.9rem;
+                margin-bottom: 15px;
+            }
+            
+            .hobby-media {
+                gap: 15px;
+            }
+            
+            .media-thumbnail {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .lightbox-caption {
+                font-size: 1.2rem;
+                margin-top: 20px;
+            }
+            
+            .lightbox-close {
+                width: 40px;
+                height: 40px;
+                top: -50px;
+            }
+            
+            .empty-section {
+                min-height: 100px;
+                padding: 20px;
+                border-radius: 8px;
+                font-size: 0.9rem;
+            }
+            
+            .particle {
+                width: 4px;
+                height: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <div class="button-container">
+            <a href="#" class="button" id="socialBtn">
+                <i class="fab fa-instagram"></i>
+                <span>Sosyal Medya</span>
+            </a>
+            <a href="#" class="button" id="aboutBtn">
+                <i class="fas fa-user"></i>
+                <span>Hakkımda</span>
+            </a>
+            <a href="#" class="button" id="hobbiesBtn">
+                <i class="fas fa-gamepad"></i>
+                <span>Hobiler & Oyunlar</span>
+            </a>
+        </div>
+        
+        <div class="name-container">
+            <h1 class="name">Emrecan Nergiz</h1>
+        </div>
+    </div>
+
+    <!-- Hakkımda Sistem Arayüzü Penceresi -->
+    <div class="system-modal" id="aboutModal">
+        <div class="system-window">
+            <div class="system-particles">
+                <!-- Animasyonlu parçacıklar JavaScript ile eklenecek -->
+            </div>
+            <div class="system-header">
+                <h2 class="system-title">Sistem Arayüzü</h2>
+                <div class="close-btn about-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="system-content">
+                <div class="profile-section">
+                    <div class="profile-image">
+                        <img src="rimurupp.jpg" alt="Profil Resmi" class="profile-img">
+                    </div>
+                    <div class="profile-info">
+                        <div class="info-row">
+                            <div class="info-item">
+                                <div class="info-label">İsim:</div>
+                                <div class="info-value">Emrecan Nergiz</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Seviye:</div>
+                                <div class="info-value">42</div>
+                            </div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-item">
+                                <div class="info-label">Sınıf:</div>
+                                <div class="info-value">Geliştirici</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Unvan:</div>
+                                <div class="info-value">Kod Ustası</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stats-section">
+                    <h3 class="stats-title">Yetenek İstatistikleri</h3>
+                    <div class="stats-container">
+                        <div class="stat-box">
+                            <div class="stat-name">Programlama</div>
+                            <div class="stat-value">85</div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-name">Tasarım</div>
+                            <div class="stat-value">70</div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-name">Oyun Bilgisi</div>
+                            <div class="stat-value">90</div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-name">Sosyal Beceri</div>
+                            <div class="stat-value">65</div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bio-section">
+                        <h3 class="bio-title">Hakkımda</h3>
+                        <p class="bio-text">
+                            Merhaba, ben Emrecan Nergiz. Yazılım geliştirme ve web tasarımı konusunda tutkulu biriyim. 
+                            Teknolojiyi takip etmeyi, yeni şeyler öğrenmeyi ve projeler geliştirmeyi seviyorum. 
+                            Boş zamanlarımda video oyunları oynar ve anime izlerim.
+                        </p>
+                    </div>
+                    
+                    <!-- Boş alan - gelecekte eklenecek içerik için -->
+                    <div class="empty-section">
+                        <p>Bu alan daha sonra eklenecek içerikler için ayrılmıştır...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sosyal Medya Sistem Arayüzü Penceresi -->
+    <div class="system-modal" id="socialModal">
+        <div class="system-window">
+            <div class="system-particles">
+                <!-- Animasyonlu parçacıklar JavaScript ile eklenecek -->
+            </div>
+            <div class="system-header">
+                <h2 class="system-title">Sosyal Medya</h2>
+                <div class="close-btn social-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="system-content">
+                <div class="social-section">
+                    <h3 class="social-title">Sosyal Medya Hesaplarım</h3>
+                    <div class="social-container">
+                        <a href="https://www.instagram.com/emr.e.25?igsh=MW40end2MzVhbGs1Zw==" target="_blank" class="social-button">
+                            <div class="social-icon">
+                                <i class="fab fa-instagram instagram-icon"></i>
+                            </div>
+                            <div class="social-info">
+                                <div class="social-name">Instagram</div>
+                                <div class="social-desc">@emr.e.25</div>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="social-button">
+                            <div class="social-icon">
+                                <i class="fab fa-discord discord-icon"></i>
+                            </div>
+                            <div class="social-info">
+                                <div class="social-name">Discord</div>
+                                <div class="social-desc">Discord hesabım</div>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="social-button">
+                            <div class="social-icon">
+                                <i class="fab fa-twitter twitter-icon"></i>
+                            </div>
+                            <div class="social-info">
+                                <div class="social-name">Twitter (X)</div>
+                                <div class="social-desc">Twitter hesabım</div>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="social-button">
+                            <div class="social-icon">
+                                <i class="fas fa-envelope mail-icon"></i>
+                            </div>
+                            <div class="social-info">
+                                <div class="social-name">E-posta</div>
+                                <div class="social-desc">E-posta adresim</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hobiler ve Oyunlar Sistem Arayüzü Penceresi -->
+    <div class="system-modal" id="hobbiesModal">
+        <div class="system-window">
+            <div class="system-particles">
+                <!-- Animasyonlu parçacıklar JavaScript ile eklenecek -->
+            </div>
+            <div class="system-header">
+                <h2 class="system-title">Hobiler & Oyunlar</h2>
+                <div class="close-btn hobbies-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="system-content">
+                <div class="hobbies-tabs">
+                    <div class="hobby-tab active" data-tab="games">Oyunlar</div>
+                    <div class="hobby-tab" data-tab="anime">Animeler</div>
+                    <div class="hobby-tab" data-tab="books">Kitaplar</div>
+                    <div class="hobby-tab" data-tab="achievements">Başarılar</div>
+                </div>
+                
+                <!-- Oyunlar Kategorisi -->
+                <div class="hobby-content active" id="games">
+                    <div class="hobby-item">
+                        <div class="hobby-header">
+                            <div class="hobby-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div>
+                                <div class="hobby-title">League of Legends</div>
+                                <div class="hobby-subtitle">MOBA | Riot Games</div>
+                            </div>
+                        </div>
+                        <div class="hobby-details">
+                            <div class="hobby-tag">PC</div>
+                            <div class="hobby-tag">Kullanıcı: EmrecanN</div>
+                            <div class="hobby-tag">Rank: Master</div>
+                        </div>
+                        <div class="hobby-description">
+                            League of Legends, 2009 yılında Riot Games tarafından geliştirilen ve yayınlanan bir MOBA oyunudur. 
+                            Oyun, beş oyuncudan oluşan iki takımın, birbirlerinin üssünü korumak ve rakip takımın ana yapılarını yıkmak için mücadele ettiği bir strateji oyunudur.
+                        </div>
+                        <div class="hobby-rating">
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star-half-alt rating-star"></i>
+                            <span class="rating-text">4.5/5</span>
+                        </div>
+                        <div class="hobby-media">
+                            <div class="media-thumbnail" data-src="lol.png" data-caption="League of Legends - Master Rank Ekran Görüntüsü">
+                                <img src="lol.png" alt="LOL Screenshot">
+                                <span class="media-badge">Resim</span>
+                            </div>
+                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="League of Legends - Pentakill Videosu">
+                                <img src="https://via.placeholder.com/80x80" alt="LOL Pentakill">
+                                <span class="media-badge">Video</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hobby-item">
+                        <div class="hobby-header">
+                            <div class="hobby-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div>
+                                <div class="hobby-title">Valorant</div>
+                                <div class="hobby-subtitle">FPS | Riot Games</div>
+                            </div>
+                        </div>
+                        <div class="hobby-details">
+                            <div class="hobby-tag">PC</div>
+                            <div class="hobby-tag">Kullanıcı: EmreN</div>
+                            <div class="hobby-tag">Rank: Diamond</div>
+                        </div>
+                        <div class="hobby-description">
+                            Valorant, Riot Games tarafından geliştirilen ücretsiz bir çok oyunculu birinci şahıs nişancı oyunudur. 
+                            Oyun, beş kişilik iki takımın birbirleriyle mücadele ettiği taktiksel bir nişancı oyunudur.
+                        </div>
+                        <div class="hobby-rating">
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="far fa-star rating-star"></i>
+                            <span class="rating-text">4.0/5</span>
+                        </div>
+                        <div class="hobby-media">
+                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="Valorant - Diamond Rank Ekran Görüntüsü">
+                                <img src="https://via.placeholder.com/80x80" alt="Valorant Screenshot">
+                                <span class="media-badge">Resim</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Animeler Kategorisi -->
+                <div class="hobby-content" id="anime">
+                    <div class="hobby-item">
+                        <div class="hobby-header">
+                            <div class="hobby-icon">
+                                <i class="fas fa-tv"></i>
+                            </div>
+                            <div>
+                                <div class="hobby-title">Solo Leveling</div>
+                                <div class="hobby-subtitle">Aksiyon, Fantazi | 2024</div>
+                            </div>
+                        </div>
+                        <div class="hobby-details">
+                            <div class="hobby-tag">Sezon: 1</div>
+                            <div class="hobby-tag">Bölüm: 12/12</div>
+                            <div class="hobby-tag">Stüdyo: A-1 Pictures</div>
+                        </div>
+                        <div class="hobby-description">
+                            Solo Leveling, dünyanın en zayıf avcısı olan Sung Jin-Woo'nun beklenmedik bir şekilde özel bir yetenek kazanarak 
+                            en güçlü avcıya dönüşmesini konu alan bir Kore animasyonudur. Hikaye, karakter gelişimi ve aksiyon sahneleriyle öne çıkıyor.
+                        </div>
+                        <div class="hobby-rating">
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <span class="rating-text">5.0/5</span>
+                        </div>
+                        <div class="hobby-media">
+                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="Solo Leveling - Sung Jin-Woo">
+                                <img src="https://via.placeholder.com/80x80" alt="Solo Leveling">
+                                <span class="media-badge">Resim</span>
+                            </div>
+                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="Solo Leveling - Dövüş Sahnesi">
+                                <img src="https://via.placeholder.com/80x80" alt="Solo Leveling Scene">
+                                <span class="media-badge">Resim</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hobby-item">
+                        <div class="hobby-header">
+                            <div class="hobby-icon">
+                                <i class="fas fa-tv"></i>
+                            </div>
+                            <div>
+                                <div class="hobby-title">Demon Slayer: Kimetsu no Yaiba</div>
+                                <div class="hobby-subtitle">Aksiyon, Tarihi | 2019</div>
+                            </div>
+                        </div>
+                        <div class="hobby-details">
+                            <div class="hobby-tag">Sezon: 3</div>
+                            <div class="hobby-tag">Bölüm: 44/44</div>
+                            <div class="hobby-tag">Stüdyo: Ufotable</div>
+                        </div>
+                        <div class="hobby-description">
+                            Demon Slayer, ailesini demonlar tarafından kaybeden Tanjiro Kamado'nun kız kardeşi Nezuko'yu tekrar insana çevirmek 
+                            için Demon Slayer Corps'a katılmasını konu alan bir animedir. Görsel kalitesi ve dövüş sahneleriyle tanınır.
+                        </div>
+                        <div class="hobby-rating">
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star-half-alt rating-star"></i>
+                            <span class="rating-text">4.5/5</span>
+                        </div>
+                        <div class="hobby-media">
+                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="Demon Slayer - Tanjiro ve Nezuko">
+                                <img src="https://via.placeholder.com/80x80" alt="Demon Slayer">
+                                <span class="media-badge">Resim</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Kitaplar Kategorisi -->
+                <div class="hobby-content" id="books">
+                    <div class="hobby-item">
+                        <div class="hobby-header">
+                            <div class="hobby-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div>
+                                <div class="hobby-title">Solo Leveling (Manhwa)</div>
+                                <div class="hobby-subtitle">Aksiyon, Fantazi | Chugong</div>
+                            </div>
+                        </div>
+                        <div class="hobby-details">
+                            <div class="hobby-tag">Bölüm: 179/179</div>
+                            <div class="hobby-tag">Durum: Tamamlandı</div>
+                            <div class="hobby-tag">Tür: Manhwa</div>
+                        </div>
+                        <div class="hobby-description">
+                            Solo Leveling, dünyanın en zayıf avcısı olan Sung Jin-Woo'nun beklenmedik bir şekilde özel bir yetenek kazanarak 
+                            en güçlü avcıya dönüşmesini konu alan bir Kore manhwasıdır. Hikaye, karakter gelişimi ve aksiyon sahneleriyle öne çıkıyor.
+                        </div>
+                        <div class="hobby-rating">
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <span class="rating-text">5.0/5</span>
+                        </div>
+                        <div class="hobby-media">
+                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="Solo Leveling Manhwa - Sung Jin-Woo">
+                                <img src="https://via.placeholder.com/80x80" alt="Solo Leveling Manhwa">
+                                <span class="media-badge">Resim</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hobby-item">
+                        <div class="hobby-header">
+                            <div class="hobby-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div>
+                                <div class="hobby-title">The Beginning After The End (Manhwa)</div>
+                                <div class="hobby-subtitle">Aksiyon, İsekai | TurtleMe</div>
+                            </div>
+                        </div>
+                        <div class="hobby-details">
+                            <div class="hobby-tag">Bölüm: 160+</div>
+                            <div class="hobby-tag">Durum: Devam Ediyor</div>
+                            <div class="hobby-tag">Tür: Manhwa</div>
+                        </div>
+                        <div class="hobby-description">
+                            The Beginning After The End, bir kral olarak yaşadığı önceki hayatında öldükten sonra yeni bir dünyada doğan 
+                            Arthur Leywin'in hikayesini anlatan bir isekai manhwasıdır. Güçlü bir büyücü olarak yeniden doğar ve geçmiş hayatındaki 
+                            anılarıyla birlikte yeni maceralara atılır.
+                        </div>
+                        <div class="hobby-rating">
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="far fa-star rating-star"></i>
+                            <span class="rating-text">4.0/5</span>
+                        </div>
+                        <div class="hobby-media">
+                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="TBATE Manhwa - Arthur Leywin">
+                                <img src="https://via.placeholder.com/80x80" alt="TBATE Manhwa">
+                                <span class="media-badge">Resim</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Başarılar Kategorisi -->
+                <div class="hobby-content" id="achievements">
+                    <div class="hobby-item">
+                        <div class="hobby-header">
+                            <div class="hobby-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div>
+                                <div class="hobby-title">League of Legends - Master Rank</div>
+                                <div class="hobby-subtitle">Başarı | 2023</div>
+                            </div>
+                        </div>
+                        <div class="hobby-details">
+                            <div class="hobby-tag">Oyun: League of Legends</div>
+                            <div class="hobby-tag">Tür: Başarı</div>
+                            <div class="hobby-tag">Zorluk: Yüksek</div>
+                        </div>
+                        <div class="hobby-description">
+                            League of Legends'ta Master rank'a ulaşmak, oyunun en iyi %1'lik dilimine girmek anlamına gelir. 
+                            Bu başarıyı elde etmek için binlerce saat oyun oynamak ve stratejik düşünmek gerekti.
+                        </div>
+                        <div class="hobby-media">
+                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="League of Legends - Master Rank Başarısı">
+                                <img src="https://via.placeholder.com/80x80" alt="Master Rank">
+                                <span class="media-badge">Resim</span>
+                            </div>
+                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="League of Legends - Maç Geçmişi">
+                                <img src="https://via.placeholder.com/80x80" alt="LOL Match History">
+                                <span class="media-badge">Resim</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hobby-item">
+                        <div class="hobby-header">
+                            <div class="hobby-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div>
+                                <div class="hobby-title">Pentakill - League of Legends</div>
+                                <div class="hobby-subtitle">Başarı | 2023</div>
+                            </div>
+                        </div>
+                        <div class="hobby-details">
+                            <div class="hobby-tag">Oyun: League of Legends</div>
+                            <div class="hobby-tag">Tür: Oyun İçi Başarı</div>
+                            <div class="hobby-tag">Karakter: Zed</div>
+                        </div>
+                        <div class="hobby-description">
+                            League of Legends'ta bir pentakill, bir maçta rakip takımın beş üyesini de tek başına öldürmektir. 
+                            Bu, oyundaki en zorlu ve en nadir başarılarından biridir. Zed karakteriyle yaptığım bu pentakill, 
+                            takımımıza önemli bir zafer getirdi.
+                        </div>
+                        <div class="hobby-media">
+                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="League of Legends - Pentakill Başarısı">
+                                <img src="https://via.placeholder.com/80x80" alt="Pentakill Screenshot">
+                                <span class="media-badge">Resim</span>
+                            </div>
+                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="League of Legends - Pentakill Videosu">
+                                <img src="https://via.placeholder.com/80x80" alt="Pentakill Video">
+                                <span class="media-badge">Video</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resim Lightbox Penceresi -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <div class="lightbox-content">
+            <div class="lightbox-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <img src="" alt="" class="lightbox-image">
+            <div class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <script>
+        // Sistem penceresi işlevselliği
+        const aboutBtn = document.getElementById('aboutBtn');
+        const socialBtn = document.getElementById('socialBtn');
+        const hobbiesBtn = document.getElementById('hobbiesBtn');
+        const aboutModal = document.getElementById('aboutModal');
+        const socialModal = document.getElementById('socialModal');
+        const hobbiesModal = document.getElementById('hobbiesModal');
+        const aboutCloseBtn = document.querySelector('.about-close');
+        const socialCloseBtn = document.querySelector('.social-close');
+        const hobbiesCloseBtn = document.querySelector('.hobbies-close');
+        const aboutParticlesContainer = document.querySelector('#aboutModal .system-particles');
+        const socialParticlesContainer = document.querySelector('#socialModal .system-particles');
+        const hobbiesParticlesContainer = document.querySelector('#hobbiesModal .system-particles');
+
+        // Hakkımda butonuna tıklandığında sistem penceresini aç
+        aboutBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            aboutModal.classList.add('active');
+            createParticles(aboutParticlesContainer);
+        });
+
+        // Sosyal Medya butonuna tıklandığında sistem penceresini aç
+        socialBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            socialModal.classList.add('active');
+            createParticles(socialParticlesContainer);
+        });
+
+        // Hobiler ve Oyunlar butonuna tıklandığında sistem penceresini aç
+        hobbiesBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            hobbiesModal.classList.add('active');
+            createParticles(hobbiesParticlesContainer);
+        });
+
+        // Kapatma butonlarına tıklandığında sistem pencerelerini kapat
+        aboutCloseBtn.addEventListener('click', function() {
+            aboutModal.classList.remove('active');
+            clearParticles(aboutParticlesContainer);
+        });
+
+        socialCloseBtn.addEventListener('click', function() {
+            socialModal.classList.remove('active');
+            clearParticles(socialParticlesContainer);
+        });
+
+        hobbiesCloseBtn.addEventListener('click', function() {
+            hobbiesModal.classList.remove('active');
+            clearParticles(hobbiesParticlesContainer);
+        });
+
+        // Pencerenin dışına tıklandığında kapat
+        aboutModal.addEventListener('click', function(e) {
+            if (e.target === aboutModal) {
+                aboutModal.classList.remove('active');
+                clearParticles(aboutParticlesContainer);
+            }
+        });
+
+        socialModal.addEventListener('click', function(e) {
+            if (e.target === socialModal) {
+                socialModal.classList.remove('active');
+                clearParticles(socialParticlesContainer);
+            }
+        });
+
+        hobbiesModal.addEventListener('click', function(e) {
+            if (e.target === hobbiesModal) {
+                hobbiesModal.classList.remove('active');
+                clearParticles(hobbiesParticlesContainer);
+            }
+        });
+
+        // Animasyonlu parçacıklar oluştur
+        function createParticles(container) {
+            clearParticles(container);
+            
+            // Mobil cihazlar için daha az parçacık
+            const particleCount = window.innerWidth <= 768 ? 15 : 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Rastgele boyut
+                const size = Math.random() * 3 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Rastgele konum
+                particle.style.left = `${Math.random() * 100}%`;
+                
+                // Rastgele animasyon süresi ve gecikme
+                const duration = Math.random() * 10 + 10;
+                const delay = Math.random() * 5;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${delay}s`;
+                
+                // Rastgele renk
+                const colors = ['rgba(160, 160, 255, 0.5)', 'rgba(120, 120, 255, 0.5)', 'rgba(200, 120, 255, 0.5)'];
+                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                container.appendChild(particle);
+            }
+        }
+
+        // Parçacıkları temizle
+        function clearParticles(container) {
+            container.innerHTML = '';
+        }
+
+        // Hobiler ve Oyunlar sekme değiştirme işlevselliği
+        const hobbyTabs = document.querySelectorAll('.hobby-tab');
+        const hobbyContents = document.querySelectorAll('.hobby-content');
+
+        hobbyTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Aktif sekmeyi kaldır
+                hobbyTabs.forEach(t => t.classList.remove('active'));
+                hobbyContents.forEach(c => c.classList.remove('active'));
+                
+                // Yeni aktif sekmeyi ekle
+                this.classList.add('active');
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Resim Lightbox işlevselliği
+        const lightboxModal = document.getElementById('lightboxModal');
+        const lightboxImage = document.querySelector('.lightbox-image');
+        const lightboxCaption = document.querySelector('.lightbox-caption');
+        const lightboxCloseBtn = document.querySelector('.lightbox-close');
+        const mediaThumbnails = document.querySelectorAll('.media-thumbnail');
+
+        // Medya küçük resimlerine tıklandığında lightbox'ı aç
+        mediaThumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', function() {
+                const imageSrc = this.getAttribute('data-src');
+                const imageCaption = this.getAttribute('data-caption');
+                
+                lightboxImage.setAttribute('src', imageSrc);
+                lightboxCaption.textContent = imageCaption;
+                lightboxModal.classList.add('active');
+            });
+        });
+
+        // Lightbox kapatma butonuna tıklandığında lightbox'ı kapat
+        lightboxCloseBtn.addEventListener('click', function() {
+            lightboxModal.classList.remove('active');
+        });
+
+        // Lightbox'ın dışına tıklandığında lightbox'ı kapat
+        lightboxModal.addEventListener('click', function(e) {
+            if (e.target === lightboxModal) {
+                lightboxModal.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
