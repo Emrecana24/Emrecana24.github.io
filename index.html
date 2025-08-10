@@ -12,7 +12,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             width: 100vw;
             height: 100vh;
@@ -23,7 +22,6 @@
             background-repeat: no-repeat;
             position: relative;
         }
-
         .overlay {
             position: absolute;
             top: 0;
@@ -36,7 +34,6 @@
             justify-content: center;
             align-items: center;
         }
-
         .button-container {
             display: flex;
             flex-direction: column;
@@ -46,7 +43,6 @@
             max-width: 90%;
             margin-bottom: 20px;
         }
-
         .button {
             display: flex;
             align-items: center;
@@ -61,13 +57,11 @@
             transition: all 0.3s ease;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
         }
-
         .button:hover {
             background-color: rgba(40, 40, 60, 0.9);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
         }
-
         .button i {
             font-size: 18px;
             margin-right: 12px;
@@ -75,18 +69,15 @@
             width: 18px;
             text-align: center;
         }
-
         .button span {
             font-size: 14px;
             font-weight: 500;
             white-space: nowrap;
         }
-
         .name-container {
             margin-top: 15px;
             position: relative;
         }
-
         .name {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.8rem;
@@ -99,7 +90,6 @@
             z-index: 1;
             animation: glow 2s ease-in-out infinite alternate;
         }
-
         .name::before {
             content: "Emrecan Nergiz";
             position: absolute;
@@ -113,7 +103,6 @@
             background-clip: text;
             animation: gradient 3s ease infinite;
         }
-
         @keyframes glow {
             from {
                 text-shadow: 0 0 8px rgba(160, 160, 255, 0.7),
@@ -125,7 +114,6 @@
                              0 0 30px rgba(160, 160, 255, 0.5);
             }
         }
-
         @keyframes gradient {
             0% {
                 background-position: 0% 50%;
@@ -137,7 +125,6 @@
                 background-position: 0% 50%;
             }
         }
-
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -148,11 +135,9 @@
                 transform: translateY(0);
             }
         }
-
         .name {
             animation: fadeIn 1.5s ease-out, glow 2s ease-in-out infinite alternate;
         }
-
         /* Solo Leveling Sistem Arayüzü Penceresi */
         .system-modal {
             position: fixed;
@@ -170,12 +155,10 @@
             transition: all 0.3s ease;
             padding: 10px;
         }
-
         .system-modal.active {
             opacity: 1;
             visibility: visible;
         }
-
         .system-window {
             width: 100%;
             height: 100%;
@@ -192,11 +175,9 @@
             transition: all 0.3s ease;
             position: relative;
         }
-
         .system-modal.active .system-window {
             transform: scale(1);
         }
-
         .system-header {
             display: flex;
             justify-content: space-between;
@@ -205,7 +186,6 @@
             background-color: rgba(30, 30, 60, 0.8);
             border-bottom: 1px solid rgba(160, 160, 255, 0.3);
         }
-
         .system-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.1rem;
@@ -214,7 +194,6 @@
             letter-spacing: 1px;
             text-shadow: 0 0 8px rgba(160, 160, 255, 0.5);
         }
-
         .close-btn {
             width: 25px;
             height: 25px;
@@ -228,17 +207,14 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
         .close-btn:hover {
             background-color: rgba(255, 100, 100, 0.3);
             border-color: rgba(255, 100, 100, 0.7);
             transform: rotate(90deg);
         }
-
         .close-btn i {
             font-size: 14px;
         }
-
         .system-content {
             display: flex;
             flex-direction: column;
@@ -247,7 +223,6 @@
             overflow-y: auto;
             overflow-x: hidden;
         }
-
         /* Hakkımda Penceresi */
         .profile-section {
             display: flex;
@@ -255,7 +230,6 @@
             align-items: center;
             margin-bottom: 15px;
         }
-
         .profile-image {
             width: 100px;
             height: 100px;
@@ -269,23 +243,19 @@
             flex-shrink: 0;
             overflow: hidden;
         }
-
         .profile-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 6px;
         }
-
         .profile-info {
             width: 100%;
         }
-
         .info-row {
             display: flex;
             margin-bottom: 10px;
         }
-
         .info-item {
             flex: 1;
             padding: 8px;
@@ -294,29 +264,24 @@
             border-left: 2px solid rgba(160, 160, 255, 0.5);
             margin-right: 8px;
         }
-
         .info-item:last-child {
             margin-right: 0;
         }
-
         .info-label {
             color: #a0a0ff;
             font-weight: bold;
             font-size: 0.8rem;
             margin-bottom: 3px;
         }
-
         .info-value {
             color: #ffffff;
             font-size: 0.9rem;
         }
-
         .stats-section {
             flex: 1;
             display: flex;
             flex-direction: column;
         }
-
         .stats-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 0.9rem;
@@ -327,14 +292,12 @@
             border-bottom: 1px solid rgba(160, 160, 255, 0.3);
             padding-bottom: 3px;
         }
-
         .stats-container {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 15px;
         }
-
         .stat-box {
             width: calc(50% - 5px);
             padding: 10px;
@@ -343,25 +306,21 @@
             border: 1px solid rgba(160, 160, 255, 0.2);
             transition: all 0.3s ease;
         }
-
         .stat-box:hover {
             border-color: rgba(160, 160, 255, 0.5);
             box-shadow: 0 0 8px rgba(160, 160, 255, 0.2);
         }
-
         .stat-name {
             color: #a0a0ff;
             font-weight: bold;
             margin-bottom: 3px;
             font-size: 0.8rem;
         }
-
         .stat-value {
             color: #ffffff;
             font-size: 1rem;
             font-weight: bold;
         }
-
         .stat-bar {
             height: 6px;
             background-color: rgba(50, 50, 70, 0.5);
@@ -369,7 +328,6 @@
             margin-top: 5px;
             overflow: hidden;
         }
-
         .stat-fill {
             height: 100%;
             background: linear-gradient(90deg, #7928ca, #a0a0ff);
@@ -377,13 +335,11 @@
             width: 75%;
             animation: fillAnimation 2s ease-in-out;
         }
-
         @keyframes fillAnimation {
             from {
                 width: 0;
             }
         }
-
         .bio-section {
             padding: 10px;
             background-color: rgba(30, 30, 50, 0.5);
@@ -391,7 +347,6 @@
             border: 1px solid rgba(160, 160, 255, 0.2);
             margin-bottom: 15px;
         }
-
         .bio-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 0.8rem;
@@ -400,13 +355,11 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-
         .bio-text {
             color: #ffffff;
             line-height: 1.4;
             font-size: 0.85rem;
         }
-
         /* Sosyal Medya Penceresi */
         .social-section {
             display: flex;
@@ -414,7 +367,6 @@
             gap: 15px;
             flex: 1;
         }
-
         .social-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.2rem;
@@ -426,14 +378,12 @@
             border-bottom: 1px solid rgba(160, 160, 255, 0.3);
             padding-bottom: 10px;
         }
-
         .social-container {
             display: flex;
             flex-direction: column;
             gap: 15px;
             flex: 1;
         }
-
         .social-button {
             display: flex;
             align-items: center;
@@ -445,14 +395,12 @@
             text-decoration: none;
             transition: all 0.3s ease;
         }
-
         .social-button:hover {
             background-color: rgba(40, 40, 70, 0.7);
             border-color: rgba(160, 160, 255, 0.5);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
-
         .social-icon {
             width: 40px;
             height: 40px;
@@ -464,42 +412,27 @@
             margin-right: 15px;
             flex-shrink: 0;
         }
-
         .social-icon i {
             font-size: 20px;
         }
-
         .instagram-icon {
             color: #E1306C;
         }
-
         .discord-icon {
             color: #7289DA;
         }
-
-        .twitter-icon {
-            color: #1DA1F2;
-        }
-
-        .mail-icon {
-            color: #EA4335;
-        }
-
         .social-info {
             flex: 1;
         }
-
         .social-name {
             font-size: 1rem;
             font-weight: bold;
             margin-bottom: 3px;
         }
-
         .social-desc {
             font-size: 0.8rem;
             color: rgba(255, 255, 255, 0.7);
         }
-
         /* Hobiler ve Oyunlar Penceresi */
         .hobbies-tabs {
             display: flex;
@@ -507,7 +440,6 @@
             margin-bottom: 15px;
             border-bottom: 1px solid rgba(160, 160, 255, 0.3);
         }
-
         .hobby-tab {
             flex: 1;
             padding: 10px 5px;
@@ -519,16 +451,13 @@
             transition: all 0.3s ease;
             border-bottom: 2px solid transparent;
         }
-
         .hobby-tab.active {
             color: #a0a0ff;
             border-bottom: 2px solid #a0a0ff;
         }
-
         .hobby-tab:hover {
             color: #ffffff;
         }
-
         .hobby-content {
             display: none;
             flex-direction: column;
@@ -536,11 +465,9 @@
             flex: 1;
             overflow-y: auto;
         }
-
         .hobby-content.active {
             display: flex;
         }
-
         .hobby-item {
             background-color: rgba(30, 30, 50, 0.5);
             border: 1px solid rgba(160, 160, 255, 0.2);
@@ -548,18 +475,15 @@
             padding: 12px;
             transition: all 0.3s ease;
         }
-
         .hobby-item:hover {
             border-color: rgba(160, 160, 255, 0.5);
             box-shadow: 0 0 10px rgba(160, 160, 255, 0.2);
         }
-
         .hobby-header {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
         }
-
         .hobby-icon {
             width: 40px;
             height: 40px;
@@ -571,30 +495,25 @@
             margin-right: 12px;
             flex-shrink: 0;
         }
-
         .hobby-icon i {
             font-size: 20px;
             color: #a0a0ff;
         }
-
         .hobby-title {
             font-size: 1rem;
             font-weight: bold;
             color: #ffffff;
         }
-
         .hobby-subtitle {
             font-size: 0.8rem;
             color: rgba(255, 255, 255, 0.7);
         }
-
         .hobby-details {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             margin-bottom: 10px;
         }
-
         .hobby-tag {
             padding: 4px 8px;
             background-color: rgba(160, 160, 255, 0.2);
@@ -602,38 +521,32 @@
             font-size: 0.75rem;
             color: #a0a0ff;
         }
-
         .hobby-description {
             font-size: 0.85rem;
             color: rgba(255, 255, 255, 0.8);
             line-height: 1.4;
             margin-bottom: 10px;
         }
-
         .hobby-rating {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
         }
-
         .rating-star {
             color: #ffd700;
             font-size: 0.9rem;
             margin-right: 2px;
         }
-
         .rating-text {
             font-size: 0.8rem;
             color: rgba(255, 255, 255, 0.7);
             margin-left: 5px;
         }
-
         .hobby-media {
             display: flex;
             gap: 10px;
             margin-top: 10px;
         }
-
         .media-thumbnail {
             width: 80px;
             height: 80px;
@@ -644,17 +557,14 @@
             transition: all 0.3s ease;
             position: relative;
         }
-
         .media-thumbnail:hover {
             transform: scale(1.05);
         }
-
         .media-thumbnail img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
         .media-badge {
             position: absolute;
             top: 5px;
@@ -665,7 +575,264 @@
             padding: 2px 5px;
             border-radius: 3px;
         }
-
+        
+        /* YENİ: Anime Grid Stilleri */
+        .anime-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            padding: 10px 0;
+        }
+        
+        .anime-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: rgba(30, 30, 50, 0.5);
+            border: 1px solid rgba(160, 160, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .anime-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(160, 160, 255, 0.3);
+            border-color: rgba(160, 160, 255, 0.5);
+        }
+        
+        .anime-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+        
+        .anime-card:hover .anime-image {
+            filter: grayscale(100%);
+            transform: scale(1.05);
+        }
+        
+        .anime-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .anime-card:hover .anime-overlay {
+            opacity: 1;
+        }
+        
+        .anime-status {
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 5px 10px;
+            background-color: rgba(160, 160, 255, 0.5);
+            border-radius: 20px;
+        }
+        
+        .anime-info {
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .anime-title {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .anime-rating {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .anime-rating i {
+            color: #ffd700;
+            font-size: 0.8rem;
+        }
+        
+        .anime-rating span {
+            color: #ffffff;
+            font-size: 0.8rem;
+        }
+        
+        /* Anime Detay Modalı - Mobil Düzeltmeleri */
+        .anime-detail-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 10px;
+            overflow-y: auto;
+        }
+        
+        .anime-detail-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .anime-detail-content {
+            width: 100%;
+            max-width: 600px;
+            background: linear-gradient(135deg, rgba(10, 10, 20, 0.95), rgba(20, 20, 40, 0.9));
+            border: 2px solid rgba(160, 160, 255, 0.5);
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(160, 160, 255, 0.5);
+            overflow: hidden;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+            margin: auto;
+        }
+        
+        .anime-detail-modal.active .anime-detail-content {
+            transform: scale(1);
+        }
+        
+        .anime-detail-header {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .anime-detail-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+        
+        .anime-detail-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .anime-detail-body {
+            padding: 15px;
+            overflow-y: auto;
+            max-height: calc(100vh - 250px);
+        }
+        
+        .anime-detail-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .anime-detail-item {
+            flex: 1;
+            min-width: 120px;
+            padding: 8px;
+            background-color: rgba(30, 30, 50, 0.5);
+            border-radius: 6px;
+            border-left: 2px solid rgba(160, 160, 255, 0.5);
+        }
+        
+        .anime-detail-label {
+            color: #a0a0ff;
+            font-weight: bold;
+            font-size: 0.8rem;
+            margin-bottom: 3px;
+        }
+        
+        .anime-detail-value {
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+        
+        .anime-detail-description {
+            color: #ffffff;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .anime-detail-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .anime-detail-rating i {
+            color: #ffd700;
+            font-size: 1rem;
+        }
+        
+        .anime-detail-rating-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        
+        .anime-detail-rating-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+        }
+        
+        .anime-detail-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 35px;
+            height: 35px;
+            background-color: rgba(160, 160, 255, 0.3);
+            border: 2px solid rgba(160, 160, 255, 0.7);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .anime-detail-close:hover {
+            background-color: rgba(255, 100, 100, 0.5);
+            border-color: rgba(255, 100, 100, 0.9);
+            transform: rotate(90deg);
+        }
+        
+        .anime-detail-close i {
+            font-size: 16px;
+        }
+        
         /* Resim Lightbox */
         .lightbox-modal {
             position: fixed;
@@ -683,12 +850,10 @@
             transition: all 0.3s ease;
             padding: 20px;
         }
-
         .lightbox-modal.active {
             opacity: 1;
             visibility: visible;
         }
-
         .lightbox-content {
             position: relative;
             max-width: 90%;
@@ -697,7 +862,6 @@
             flex-direction: column;
             align-items: center;
         }
-
         .lightbox-image {
             max-width: 100%;
             max-height: 80vh;
@@ -706,7 +870,6 @@
             box-shadow: 0 0 30px rgba(160, 160, 255, 0.5);
             border: 2px solid rgba(160, 160, 255, 0.3);
         }
-
         .lightbox-caption {
             margin-top: 15px;
             color: #ffffff;
@@ -714,7 +877,6 @@
             text-align: center;
             max-width: 80%;
         }
-
         .lightbox-close {
             position: absolute;
             top: -40px;
@@ -731,13 +893,11 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
         .lightbox-close:hover {
             background-color: rgba(255, 100, 100, 0.3);
             border-color: rgba(255, 100, 100, 0.7);
             transform: rotate(90deg);
         }
-
         /* Boş alan - gelecekte eklenecek içerik için */
         .empty-section {
             flex: 1;
@@ -752,7 +912,6 @@
             font-style: italic;
             font-size: 0.8rem;
         }
-
         /* Sistem efekti - animasyonlu parçacıklar */
         .system-particles {
             position: absolute;
@@ -764,7 +923,6 @@
             overflow: hidden;
             z-index: -1;
         }
-
         .particle {
             position: absolute;
             width: 3px;
@@ -773,7 +931,6 @@
             border-radius: 50%;
             animation: float 10s infinite linear;
         }
-
         @keyframes float {
             from {
                 transform: translateY(100vh) translateX(0);
@@ -790,7 +947,6 @@
                 opacity: 0;
             }
         }
-
         /* Masaüstü için stiller */
         @media (min-width: 769px) {
             .button-container {
@@ -1054,6 +1210,104 @@
                 width: 4px;
                 height: 4px;
             }
+            
+            /* YENİ: Anime Grid Masaüstü Stilleri */
+            .anime-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 20px;
+            }
+            
+            .anime-image {
+                height: 240px;
+            }
+            
+            .anime-title {
+                font-size: 1rem;
+            }
+            
+            .anime-rating i {
+                font-size: 1rem;
+            }
+            
+            .anime-rating span {
+                font-size: 0.9rem;
+            }
+            
+            /* Anime Detay Modalı Masaüstü Stilleri */
+            .anime-detail-modal {
+                padding: 20px;
+            }
+            
+            .anime-detail-content {
+                max-width: 800px;
+            }
+            
+            .anime-detail-header {
+                height: 250px;
+            }
+            
+            .anime-detail-title {
+                font-size: 1.8rem;
+                padding: 20px;
+            }
+            
+            .anime-detail-body {
+                padding: 25px;
+                max-height: calc(100vh - 300px);
+            }
+            
+            .anime-detail-info {
+                gap: 15px;
+                margin-bottom: 25px;
+            }
+            
+            .anime-detail-item {
+                min-width: 150px;
+                padding: 12px;
+            }
+            
+            .anime-detail-label {
+                font-size: 0.9rem;
+                margin-bottom: 5px;
+            }
+            
+            .anime-detail-value {
+                font-size: 1rem;
+            }
+            
+            .anime-detail-description {
+                font-size: 1rem;
+                line-height: 1.6;
+                margin-bottom: 25px;
+            }
+            
+            .anime-detail-rating {
+                gap: 15px;
+                margin-bottom: 25px;
+            }
+            
+            .anime-detail-rating i {
+                font-size: 1.2rem;
+            }
+            
+            .anime-detail-rating-value {
+                font-size: 1.5rem;
+            }
+            
+            .anime-detail-rating-text {
+                font-size: 1rem;
+            }
+            
+            .anime-detail-close {
+                width: 40px;
+                height: 40px;
+                top: 15px;
+                right: 15px;
+            }
+            
+            .anime-detail-close i {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
@@ -1078,7 +1332,6 @@
             <h1 class="name">Emrecan Nergiz</h1>
         </div>
     </div>
-
     <!-- Hakkımda Sistem Arayüzü Penceresi -->
     <div class="system-modal" id="aboutModal">
         <div class="system-window">
@@ -1094,7 +1347,7 @@
             <div class="system-content">
                 <div class="profile-section">
                     <div class="profile-image">
-                        <img src="rimurupp.jpg" alt="Profil Resmi" class="profile-img">
+                        <img src="ben.gif" alt="Profil Resmi" class="profile-img">
                     </div>
                     <div class="profile-info">
                         <div class="info-row">
@@ -1103,8 +1356,8 @@
                                 <div class="info-value">Emrecan Nergiz</div>
                             </div>
                             <div class="info-item">
-                                <div class="info-label">Seviye:</div>
-                                <div class="info-value">42</div>
+                                <div class="info-label">Yaş:</div>
+                                <div class="info-value">19</div>
                             </div>
                         </div>
                         <div class="info-row">
@@ -1114,7 +1367,7 @@
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Unvan:</div>
-                                <div class="info-value">Kod Ustası</div>
+                                <div class="info-value">PABLO-Emoç</div>
                             </div>
                         </div>
                     </div>
@@ -1125,9 +1378,9 @@
                     <div class="stats-container">
                         <div class="stat-box">
                             <div class="stat-name">Programlama</div>
-                            <div class="stat-value">85</div>
+                            <div class="stat-value">50</div>
                             <div class="stat-bar">
-                                <div class="stat-fill" style="width: 85%;"></div>
+                                <div class="stat-fill" style="width: 50%;"></div>
                             </div>
                         </div>
                         <div class="stat-box">
@@ -1170,7 +1423,6 @@
             </div>
         </div>
     </div>
-
     <!-- Sosyal Medya Sistem Arayüzü Penceresi -->
     <div class="system-modal" id="socialModal">
         <div class="system-window">
@@ -1197,33 +1449,13 @@
                             </div>
                         </a>
                         
-                        <a href="#" class="social-button">
+                        <a href="https://discord.com/users/673970193055088647" class="social-button">
                             <div class="social-icon">
                                 <i class="fab fa-discord discord-icon"></i>
                             </div>
                             <div class="social-info">
                                 <div class="social-name">Discord</div>
-                                <div class="social-desc">Discord hesabım</div>
-                            </div>
-                        </a>
-                        
-                        <a href="#" class="social-button">
-                            <div class="social-icon">
-                                <i class="fab fa-twitter twitter-icon"></i>
-                            </div>
-                            <div class="social-info">
-                                <div class="social-name">Twitter (X)</div>
-                                <div class="social-desc">Twitter hesabım</div>
-                            </div>
-                        </a>
-                        
-                        <a href="#" class="social-button">
-                            <div class="social-icon">
-                                <i class="fas fa-envelope mail-icon"></i>
-                            </div>
-                            <div class="social-info">
-                                <div class="social-name">E-posta</div>
-                                <div class="social-desc">E-posta adresim</div>
+                                <div class="social-desc">@emrecana24</div>
                             </div>
                         </a>
                     </div>
@@ -1231,7 +1463,6 @@
             </div>
         </div>
     </div>
-
     <!-- Hobiler ve Oyunlar Sistem Arayüzü Penceresi -->
     <div class="system-modal" id="hobbiesModal">
         <div class="system-window">
@@ -1248,8 +1479,8 @@
                 <div class="hobbies-tabs">
                     <div class="hobby-tab active" data-tab="games">Oyunlar</div>
                     <div class="hobby-tab" data-tab="anime">Animeler</div>
-                    <div class="hobby-tab" data-tab="books">Kitaplar</div>
-                    <div class="hobby-tab" data-tab="achievements">Başarılar</div>
+                    <div class="hobby-tab" data-tab="books">Webtoonlar</div>
+                    <div class="hobby-tab" data-tab="achievements">Forum</div>
                 </div>
                 
                 <!-- Oyunlar Kategorisi -->
@@ -1260,35 +1491,39 @@
                                 <i class="fas fa-gamepad"></i>
                             </div>
                             <div>
-                                <div class="hobby-title">League of Legends</div>
+                                <div class="hobby-title">League of Legends: Wild Rift</div>
                                 <div class="hobby-subtitle">MOBA | Riot Games</div>
                             </div>
                         </div>
                         <div class="hobby-details">
-                            <div class="hobby-tag">PC</div>
-                            <div class="hobby-tag">Kullanıcı: EmrecanN</div>
-                            <div class="hobby-tag">Rank: Master</div>
+                            <div class="hobby-tag">Mobil</div>
+                            <div class="hobby-tag">Kullanıcı: P A B L 0</div>
+                            <div class="hobby-tag">Rank: max Diamond 2</div>
+                            <div class="hobby-tag">1000+/s</div>
                         </div>
                         <div class="hobby-description">
-                            League of Legends, 2009 yılında Riot Games tarafından geliştirilen ve yayınlanan bir MOBA oyunudur. 
-                            Oyun, beş oyuncudan oluşan iki takımın, birbirlerinin üssünü korumak ve rakip takımın ana yapılarını yıkmak için mücadele ettiği bir strateji oyunudur.
+                            League of Legends: Wild Rift, Riot Games'in 2020'de çıkardığı mobil ve konsol için MOBA oyunudur. Beş kişilik iki takım, rakip Nexus'u yıkmak için savaşır. Orijinal LoL'ün dinamiklerini korurken daha hızlı oyun süresi ve mobil uyumlu kontroller sunar. Çeşitli şampiyonlarla takım stratejisi kurarak zafer için mücadele edilir.
                         </div>
                         <div class="hobby-rating">
                             <i class="fas fa-star rating-star"></i>
                             <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
                             <i class="fas fa-star-half-alt rating-star"></i>
-                            <span class="rating-text">4.5/5</span>
+                            <i class="far fa-star rating-star"></i>
+                            <i class="far fa-star rating-star"></i>
+                            <span class="rating-text">2.5/5</span>
                         </div>
                         <div class="hobby-media">
-                            <div class="media-thumbnail" data-src="lol.png" data-caption="League of Legends - Master Rank Ekran Görüntüsü">
-                                <img src="lol.png" alt="LOL Screenshot">
+                            <div class="media-thumbnail" data-src="lol/lol1.png" data-caption="League of Legends - en yakın arkadaş">
+                                <img src="lol/lol1.png" alt="LOL Screenshot">
                                 <span class="media-badge">Resim</span>
                             </div>
-                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="League of Legends - Pentakill Videosu">
-                                <img src="https://via.placeholder.com/80x80" alt="LOL Pentakill">
-                                <span class="media-badge">Video</span>
+                            <div class="media-thumbnail" data-src="lol/lol2.png" data-caption="League of Legends - Master elo oyun sonu">
+                                <img src="lol/lol2.png" alt="LOL Screenshot">
+                                <span class="media-badge">Resim</span>
+                            </div>
+                            <div class="media-thumbnail" data-src="lol/lol3.png" data-caption="League of Legends - Master Rank">
+                                <img src="lol/lol3.png" alt="LOL Screenshot">
+                                <span class="media-badge">Resim</span>
                             </div>
                         </div>
                     </div>
@@ -1299,18 +1534,17 @@
                                 <i class="fas fa-gamepad"></i>
                             </div>
                             <div>
-                                <div class="hobby-title">Valorant</div>
-                                <div class="hobby-subtitle">FPS | Riot Games</div>
+                                <div class="hobby-title">Minecraft</div>
+                                <div class="hobby-subtitle">Sandbox | Mojang</div>
                             </div>
                         </div>
                         <div class="hobby-details">
-                            <div class="hobby-tag">PC</div>
-                            <div class="hobby-tag">Kullanıcı: EmreN</div>
-                            <div class="hobby-tag">Rank: Diamond</div>
+                            <div class="hobby-tag">PC/Mobil</div>
+                            <div class="hobby-tag">Kullanıcı: Emrecana24(bedrock)</div>
+                            <div class="hobby-tag">Kullanıcı: emrecana024(java)</div>
                         </div>
                         <div class="hobby-description">
-                            Valorant, Riot Games tarafından geliştirilen ücretsiz bir çok oyunculu birinci şahıs nişancı oyunudur. 
-                            Oyun, beş kişilik iki takımın birbirleriyle mücadele ettiği taktiksel bir nişancı oyunudur.
+                            Minecraft, Mojang Studios'un 2011'de çıkardığı sandbox oyunudur. Oyuncular, bloklardan oluşan sonsuz dünyalarda kaynak toplayıp yapılar inşa eder. Yaratıcılık ve hayatta kalma odaklı olan oyun, tek veya çok oyunculu modlarda oynanabilir. Kendi dünyanızı yaratabilir, maceralara çıkabilir veya başkalarıyla keşfe çıkabilirsiniz.
                         </div>
                         <div class="hobby-rating">
                             <i class="fas fa-star rating-star"></i>
@@ -1321,50 +1555,16 @@
                             <span class="rating-text">4.0/5</span>
                         </div>
                         <div class="hobby-media">
-                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="Valorant - Diamond Rank Ekran Görüntüsü">
-                                <img src="https://via.placeholder.com/80x80" alt="Valorant Screenshot">
+                            <div class="media-thumbnail" data-src="minecraft/mc1.png" data-caption="Minecraft - Orta Çağ Kale">
+                                <img src="minecraft/mc1.png" alt="Minecraft Screenshot">
                                 <span class="media-badge">Resim</span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Animeler Kategorisi -->
-                <div class="hobby-content" id="anime">
-                    <div class="hobby-item">
-                        <div class="hobby-header">
-                            <div class="hobby-icon">
-                                <i class="fas fa-tv"></i>
-                            </div>
-                            <div>
-                                <div class="hobby-title">Solo Leveling</div>
-                                <div class="hobby-subtitle">Aksiyon, Fantazi | 2024</div>
-                            </div>
-                        </div>
-                        <div class="hobby-details">
-                            <div class="hobby-tag">Sezon: 1</div>
-                            <div class="hobby-tag">Bölüm: 12/12</div>
-                            <div class="hobby-tag">Stüdyo: A-1 Pictures</div>
-                        </div>
-                        <div class="hobby-description">
-                            Solo Leveling, dünyanın en zayıf avcısı olan Sung Jin-Woo'nun beklenmedik bir şekilde özel bir yetenek kazanarak 
-                            en güçlü avcıya dönüşmesini konu alan bir Kore animasyonudur. Hikaye, karakter gelişimi ve aksiyon sahneleriyle öne çıkıyor.
-                        </div>
-                        <div class="hobby-rating">
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
-                            <span class="rating-text">5.0/5</span>
-                        </div>
-                        <div class="hobby-media">
-                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="Solo Leveling - Sung Jin-Woo">
-                                <img src="https://via.placeholder.com/80x80" alt="Solo Leveling">
+                            <div class="media-thumbnail" data-src="minecraft/mc2.png" data-caption="Minecraft - Hogwarts">
+                                <img src="minecraft/mc2.png" alt="Minecraft Screenshot">
                                 <span class="media-badge">Resim</span>
                             </div>
-                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="Solo Leveling - Dövüş Sahnesi">
-                                <img src="https://via.placeholder.com/80x80" alt="Solo Leveling Scene">
+                            <div class="media-thumbnail" data-src="minecraft/mc3.png" data-caption="Minecraft - Hogwartsa giriş">
+                                <img src="minecraft/mc3.png" alt="Minecraft Screenshot">
                                 <span class="media-badge">Resim</span>
                             </div>
                         </div>
@@ -1373,21 +1573,21 @@
                     <div class="hobby-item">
                         <div class="hobby-header">
                             <div class="hobby-icon">
-                                <i class="fas fa-tv"></i>
+                                <i class="fas fa-gamepad"></i>
                             </div>
                             <div>
-                                <div class="hobby-title">Demon Slayer: Kimetsu no Yaiba</div>
-                                <div class="hobby-subtitle">Aksiyon, Tarihi | 2019</div>
+                                <div class="hobby-title">Clash of Clans</div>
+                                <div class="hobby-subtitle">Strateji | Supercell</div>
                             </div>
                         </div>
                         <div class="hobby-details">
-                            <div class="hobby-tag">Sezon: 3</div>
-                            <div class="hobby-tag">Bölüm: 44/44</div>
-                            <div class="hobby-tag">Stüdyo: Ufotable</div>
+                            <div class="hobby-tag">Mobil</div>
+                            <div class="hobby-tag">Kullanıcı: P A B L 0</div>
+                            <div class="hobby-tag">Seviye: 140+</div>
+                            <div class="hobby-tag">Klan: Yok</div>
                         </div>
                         <div class="hobby-description">
-                            Demon Slayer, ailesini demonlar tarafından kaybeden Tanjiro Kamado'nun kız kardeşi Nezuko'yu tekrar insana çevirmek 
-                            için Demon Slayer Corps'a katılmasını konu alan bir animedir. Görsel kalitesi ve dövüş sahneleriyle tanınır.
+                            Clash of Clans, Supercell tarafından geliştirilen bir strateji oyunudur. Oyuncular kendi köylerini inşa eder, kaynak toplar ve diğer oyuncuların köylerine saldırır. Klanlara katılarak birlikte savaşabilir ve klan savaşlarına katılabilirsiniz. Zamanla gelişen bir oyun deneyimi sunar.
                         </div>
                         <div class="hobby-rating">
                             <i class="fas fa-star rating-star"></i>
@@ -1398,9 +1598,219 @@
                             <span class="rating-text">4.5/5</span>
                         </div>
                         <div class="hobby-media">
-                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="Demon Slayer - Tanjiro ve Nezuko">
-                                <img src="https://via.placeholder.com/80x80" alt="Demon Slayer">
+                            <div class="media-thumbnail" data-src="eklenecek.png" data-caption="Clash of Clans - Eklenecek">
+                                <img src="eklenecek.png" alt="Clash of Clans Screenshot">
                                 <span class="media-badge">Resim</span>
+                            </div>
+                            <div class="media-thumbnail" data-src="eklenecek.png" data-caption="Clash of Clans - Eklenecek">
+                                <img src="eklenecek.png" alt="Clash of Clans Screenshot">
+                                <span class="media-badge">Resim</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hobby-item">
+                        <div class="hobby-header">
+                            <div class="hobby-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div>
+                                <div class="hobby-title">PUBG Mobile</div>
+                                <div class="hobby-subtitle">Battle Royale | Tencent Games</div>
+                            </div>
+                        </div>
+                        <div class="hobby-details">
+                            <div class="hobby-tag">Mobil</div>
+                            <div class="hobby-tag">Kullanıcı: ---</div>
+                            <div class="hobby-tag">Rank: Ace</div>
+                            <div class="hobby-tag">K/D: 4.5</div>
+                        </div>
+                        <div class="hobby-description">
+                            PUBG Mobile, Tencent Games tarafından geliştirilen ücretsiz bir battle royale oyunudur. 100 oyuncunun bir adada paraşütle iniş yaparak silah ve ekipman bularak hayatta kalmaya çalıştığı bir oyun. Son hayatta kalan oyuncu veya takım kazanır. Taktiksel oynanışı ve gerçekçi grafikleriyle öne çıkar.
+                        </div>
+                        <div class="hobby-rating">
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="far fa-star rating-star"></i>
+                            <span class="rating-text">4.0/5</span>
+                        </div>
+                        <div class="hobby-media">
+                            <div class="media-thumbnail" data-src="pubg/pubg1.png" data-caption="PUBG Mobile - Eklenecek">
+                                <img src="pubg/pubg1.png" alt="PUBG Mobile Screenshot">
+                                <span class="media-badge">Resim</span>
+                            </div>
+                            <div class="media-thumbnail" data-src="pubg/pubg2.png" data-caption="PUBG Mobile - Eklenecek">
+                                <img src="pubg/pubg2.png" alt="PUBG Mobile Screenshot">
+                                <span class="media-badge">Resim</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hobby-item">
+                        <div class="hobby-header">
+                            <div class="hobby-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div>
+                                <div class="hobby-title">Stardew Valley</div>
+                                <div class="hobby-subtitle">Simülasyon | ConcernedApe</div>
+                            </div>
+                        </div>
+                        <div class="hobby-details">
+                            <div class="hobby-tag">Mobil</div>
+                            <div class="hobby-tag">Kullanıcı: Rimuru</div>
+                            <div class="hobby-tag">Yıl: 2+</div>
+                            <div class="hobby-tag">Çiftlik: Çiftliğim</div>
+                        </div>
+                        <div class="hobby-description">
+                            Stardew Valley, ConcernedApe tarafından geliştirilen bir çiftlik simülasyonu oyunudur. Oyuncular büyükbabalarından miras kalan bir çiftliği yönetir, eker biçer, hayvan besler ve kasaba halkıyla etkileşime geçer. Sakin ve sakin bir oyun deneyimi sunarken aynı zamanda derin bir hikaye ve karakter gelişimi içerir.
+                        </div>
+                        <div class="hobby-rating">
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <span class="rating-text">5.0/5</span>
+                        </div>
+                        <div class="hobby-media">
+                            <div class="media-thumbnail" data-src="stardew/stardew1.png" data-caption="Stardew Valley - Eklenecek">
+                                <img src="stardew/stardew1.png" alt="Stardew Valley Screenshot">
+                                <span class="media-badge">Resim</span>
+                            </div>
+                            <div class="media-thumbnail" data-src="stardew/stardew2.png" data-caption="Stardew Valley - Eklenecek">
+                                <img src="stardew/stardew2.png" alt="Stardew Valley Screenshot">
+                                <span class="media-badge">Resim</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hobby-item">
+                        <div class="hobby-header">
+                            <div class="hobby-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div>
+                                <div class="hobby-title">Albion Online</div>
+                                <div class="hobby-subtitle">MMORPG | Sandbox Interactive</div>
+                            </div>
+                        </div>
+                        <div class="hobby-details">
+                            <div class="hobby-tag">Mobil</div>
+                            <div class="hobby-tag">Kullanıcı: Rumiru</div>
+                            <div class="hobby-tag">Seviye: --t8 madenci</div>
+                            <div class="hobby-tag">Lonca: Yok</div>
+                        </div>
+                        <div class="hobby-description">
+                            Albion Online, Sandbox Interactive tarafından geliştirilen bir MMORPG oyunudur. Oyuncular kendi kaderlerini belirler, savaşçı, çiftçi, tüccar gibi çeşitli roller üstlenebilir. Oyunda tam bir player-driven ekonomi vardır ve her şey oyuncular tarafından üretilir. PvP ve PvE içerikleri sunar.
+                        </div>
+                        <div class="hobby-rating">
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="fas fa-star rating-star"></i>
+                            <i class="far fa-star rating-star"></i>
+                            <span class="rating-text">4.0/5</span>
+                        </div>
+                        <div class="hobby-media">
+                            <div class="media-thumbnail" data-src="albion/albion1.png" data-caption="Albion Online - Eklenecek">
+                                <img src="albion/albion1.png" alt="Albion Online Screenshot">
+                                <span class="media-badge">Resim</span>
+                            </div>
+                            <div class="media-thumbnail" data-src="albion/albion2.png" data-caption="Albion Online - Eklenecek">
+                                <img src="albion/albion2.png" alt="Albion Online Screenshot">
+                                <span class="media-badge">Resim</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Animeler Kategorisi -->
+                <div class="hobby-content" id="anime">
+                    <div class="anime-grid">
+                        <div class="anime-card" data-id="1">
+                            <img src="animepp/1.png" alt="Solo Leveling" class="anime-image">
+                            <div class="anime-overlay">
+                                <span class="anime-status">İzlendi</span>
+                            </div>
+                            <div class="anime-info">
+                                <div class="anime-title">Solo Leveling</div>
+                                <div class="anime-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>8.9</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="anime-card" data-id="2">
+                            <img src="animepp/2.png" alt="Demon Slayer" class="anime-image">
+                            <div class="anime-overlay">
+                                <span class="anime-status">İzlendi</span>
+                            </div>
+                            <div class="anime-info">
+                                <div class="anime-title">Demon Slayer</div>
+                                <div class="anime-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>8.7</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="anime-card" data-id="3">
+                            <img src="animepp/3.png" alt="Attack on Titan" class="anime-image">
+                            <div class="anime-overlay">
+                                <span class="anime-status">İzlenmedi</span>
+                            </div>
+                            <div class="anime-info">
+                                <div class="anime-title">Attack on Titan</div>
+                                <div class="anime-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>9.0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="anime-card" data-id="4">
+                            <img src="animepp/4.png" alt="Jujutsu Kaisen" class="anime-image">
+                            <div class="anime-overlay">
+                                <span class="anime-status">İzlendi</span>
+                            </div>
+                            <div class="anime-info">
+                                <div class="anime-title">Jujutsu Kaisen</div>
+                                <div class="anime-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>8.5</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="anime-card" data-id="5">
+                            <img src="animepp/5.png" alt="My Hero Academia" class="anime-image">
+                            <div class="anime-overlay">
+                                <span class="anime-status">İzlendi</span>
+                            </div>
+                            <div class="anime-info">
+                                <div class="anime-title">My Hero Academia</div>
+                                <div class="anime-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>8.4</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="anime-card" data-id="6">
+                            <img src="animepp/6.png" alt="One Piece" class="anime-image">
+                            <div class="anime-overlay">
+                                <span class="anime-status">İzleniyor</span>
+                            </div>
+                            <div class="anime-info">
+                                <div class="anime-title">One Piece</div>
+                                <div class="anime-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>8.9</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1436,44 +1846,8 @@
                             <span class="rating-text">5.0/5</span>
                         </div>
                         <div class="hobby-media">
-                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="Solo Leveling Manhwa - Sung Jin-Woo">
-                                <img src="https://via.placeholder.com/80x80" alt="Solo Leveling Manhwa">
-                                <span class="media-badge">Resim</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="hobby-item">
-                        <div class="hobby-header">
-                            <div class="hobby-icon">
-                                <i class="fas fa-book"></i>
-                            </div>
-                            <div>
-                                <div class="hobby-title">The Beginning After The End (Manhwa)</div>
-                                <div class="hobby-subtitle">Aksiyon, İsekai | TurtleMe</div>
-                            </div>
-                        </div>
-                        <div class="hobby-details">
-                            <div class="hobby-tag">Bölüm: 160+</div>
-                            <div class="hobby-tag">Durum: Devam Ediyor</div>
-                            <div class="hobby-tag">Tür: Manhwa</div>
-                        </div>
-                        <div class="hobby-description">
-                            The Beginning After The End, bir kral olarak yaşadığı önceki hayatında öldükten sonra yeni bir dünyada doğan 
-                            Arthur Leywin'in hikayesini anlatan bir isekai manhwasıdır. Güçlü bir büyücü olarak yeniden doğar ve geçmiş hayatındaki 
-                            anılarıyla birlikte yeni maceralara atılır.
-                        </div>
-                        <div class="hobby-rating">
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="fas fa-star rating-star"></i>
-                            <i class="far fa-star rating-star"></i>
-                            <span class="rating-text">4.0/5</span>
-                        </div>
-                        <div class="hobby-media">
-                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="TBATE Manhwa - Arthur Leywin">
-                                <img src="https://via.placeholder.com/80x80" alt="TBATE Manhwa">
+                            <div class="media-thumbnail" data-src="animepp/1.png" data-caption="Solo Leveling Manhwa - Sung Jin-Woo">
+                                <img src="animepp/1.png" alt="Solo Leveling Manhwa">
                                 <span class="media-badge">Resim</span>
                             </div>
                         </div>
@@ -1502,45 +1876,13 @@
                             Bu başarıyı elde etmek için binlerce saat oyun oynamak ve stratejik düşünmek gerekti.
                         </div>
                         <div class="hobby-media">
-                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="League of Legends - Master Rank Başarısı">
-                                <img src="https://via.placeholder.com/80x80" alt="Master Rank">
+                            <div class="media-thumbnail" data-src="lol/lol3.png" data-caption="League of Legends - Master Rank Başarısı">
+                                <img src="lol/lol3.png" alt="Master Rank">
                                 <span class="media-badge">Resim</span>
                             </div>
-                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="League of Legends - Maç Geçmişi">
-                                <img src="https://via.placeholder.com/80x80" alt="LOL Match History">
+                            <div class="media-thumbnail" data-src="lol/lol2.png" data-caption="League of Legends - master elo oyun sonu">
+                                <img src="lol/lol2.png" alt="LOL Match History">
                                 <span class="media-badge">Resim</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="hobby-item">
-                        <div class="hobby-header">
-                            <div class="hobby-icon">
-                                <i class="fas fa-trophy"></i>
-                            </div>
-                            <div>
-                                <div class="hobby-title">Pentakill - League of Legends</div>
-                                <div class="hobby-subtitle">Başarı | 2023</div>
-                            </div>
-                        </div>
-                        <div class="hobby-details">
-                            <div class="hobby-tag">Oyun: League of Legends</div>
-                            <div class="hobby-tag">Tür: Oyun İçi Başarı</div>
-                            <div class="hobby-tag">Karakter: Zed</div>
-                        </div>
-                        <div class="hobby-description">
-                            League of Legends'ta bir pentakill, bir maçta rakip takımın beş üyesini de tek başına öldürmektir. 
-                            Bu, oyundaki en zorlu ve en nadir başarılarından biridir. Zed karakteriyle yaptığım bu pentakill, 
-                            takımımıza önemli bir zafer getirdi.
-                        </div>
-                        <div class="hobby-media">
-                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="League of Legends - Pentakill Başarısı">
-                                <img src="https://via.placeholder.com/80x80" alt="Pentakill Screenshot">
-                                <span class="media-badge">Resim</span>
-                            </div>
-                            <div class="media-thumbnail" data-src="https://via.placeholder.com/800x600" data-caption="League of Legends - Pentakill Videosu">
-                                <img src="https://via.placeholder.com/80x80" alt="Pentakill Video">
-                                <span class="media-badge">Video</span>
                             </div>
                         </div>
                     </div>
@@ -1548,7 +1890,52 @@
             </div>
         </div>
     </div>
-
+    
+    <!-- Anime Detay Modalı -->
+    <div class="anime-detail-modal" id="animeDetailModal">
+        <div class="anime-detail-content">
+            <div class="anime-detail-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="anime-detail-header">
+                <img src="" alt="" class="anime-detail-image">
+                <div class="anime-detail-title"></div>
+            </div>
+            <div class="anime-detail-body">
+                <div class="anime-detail-info">
+                    <div class="anime-detail-item">
+                        <div class="anime-detail-label">Tür</div>
+                        <div class="anime-detail-value"></div>
+                    </div>
+                    <div class="anime-detail-item">
+                        <div class="anime-detail-label">Yıl</div>
+                        <div class="anime-detail-value"></div>
+                    </div>
+                    <div class="anime-detail-item">
+                        <div class="anime-detail-label">Bölüm</div>
+                        <div class="anime-detail-value"></div>
+                    </div>
+                    <div class="anime-detail-item">
+                        <div class="anime-detail-label">Stüdyo</div>
+                        <div class="anime-detail-value"></div>
+                    </div>
+                </div>
+                
+                <div class="anime-detail-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span class="anime-detail-rating-value"></span>
+                    <span class="anime-detail-rating-text">IMDb Puanı</span>
+                </div>
+                
+                <div class="anime-detail-description"></div>
+            </div>
+        </div>
+    </div>
+    
     <!-- Resim Lightbox Penceresi -->
     <div class="lightbox-modal" id="lightboxModal">
         <div class="lightbox-content">
@@ -1559,7 +1946,6 @@
             <div class="lightbox-caption"></div>
         </div>
     </div>
-
     <script>
         // Sistem penceresi işlevselliği
         const aboutBtn = document.getElementById('aboutBtn');
@@ -1574,44 +1960,120 @@
         const aboutParticlesContainer = document.querySelector('#aboutModal .system-particles');
         const socialParticlesContainer = document.querySelector('#socialModal .system-particles');
         const hobbiesParticlesContainer = document.querySelector('#hobbiesModal .system-particles');
-
+        
+        // Anime detay modalı
+        const animeDetailModal = document.getElementById('animeDetailModal');
+        const animeDetailCloseBtn = document.querySelector('.anime-detail-close');
+        const animeDetailImage = document.querySelector('.anime-detail-image');
+        const animeDetailTitle = document.querySelector('.anime-detail-title');
+        const animeDetailType = document.querySelector('.anime-detail-item:nth-child(1) .anime-detail-value');
+        const animeDetailYear = document.querySelector('.anime-detail-item:nth-child(2) .anime-detail-value');
+        const animeDetailEpisodes = document.querySelector('.anime-detail-item:nth-child(3) .anime-detail-value');
+        const animeDetailStudio = document.querySelector('.anime-detail-item:nth-child(4) .anime-detail-value');
+        const animeDetailRatingValue = document.querySelector('.anime-detail-rating-value');
+        const animeDetailDescription = document.querySelector('.anime-detail-description');
+        
+        // Anime verileri
+        const animeData = {
+            1: {
+                title: "Solo Leveling",
+                image: "animepp/1.png",
+                type: "Aksiyon, Fantazi",
+                year: "2024",
+                episodes: "12/12",
+                studio: "A-1 Pictures",
+                rating: "8.9",
+                description: "Solo Leveling, dünyanın en zayıf avcısı olan Sung Jin-Woo'nun beklenmedik bir şekilde özel bir yetenek kazanarak en güçlü avcıya dönüşmesini konu alan bir Kore animasyonudur. Hikaye, karakter gelişimi ve aksiyon sahneleriyle öne çıkıyor."
+            },
+            2: {
+                title: "Demon Slayer: Kimetsu no Yaiba",
+                image: "animepp/2.png",
+                type: "Aksiyon, Tarihi",
+                year: "2019",
+                episodes: "26/26",
+                studio: "Ufotable",
+                rating: "8.7",
+                description: "Demon Slayer, ailesini demonlar tarafından kaybeden Tanjiro Kamado'nun kız kardeşi Nezuko'yu tekrar insana çevirmek için Demon Slayer Corps'a katılmasını konu alan bir animedir. Görsel kalitesi ve dövüş sahneleriyle tanınır."
+            },
+            3: {
+                title: "Attack on Titan",
+                image: "animepp/3.png",
+                type: "Aksiyon, Dram",
+                year: "2013",
+                episodes: "75/75",
+                studio: "Wit Studio, MAPPA",
+                rating: "9.0",
+                description: "Attack on Titan, devasa insansı yaratıklar olan Titan'ların insanlığı yok ettiği bir dünyada geçer. İnsanlık, dev duvarların arkasında saklanarak hayatta kalmaya çalışır. Eren Yeager ve arkadaşları, insanlığı kurtarmak için savaşır."
+            },
+            4: {
+                title: "Jujutsu Kaisen",
+                image: "animepp/4.png",
+                type: "Aksiyon, Okul",
+                year: "2020",
+                episodes: "24/24",
+                studio: "MAPPA",
+                rating: "8.5",
+                description: "Jujutsu Kaisen, lanetli ruhlarla savaşan büyücülerin hikayesini anlatır. Yuji Itadori, özel bir laneti yutarak Jujutsu büyücüsü olur. Okul hayatı ve aksiyonun bir arada olduğu popüler bir animedir."
+            },
+            5: {
+                title: "My Hero Academia",
+                image: "animepp/5.png",
+                type: "Aksiyon, Süper Kahraman",
+                year: "2016",
+                episodes: "113/113",
+                studio: "Bones",
+                rating: "8.4",
+                description: "My Hero Academia, süper güçlerin (Quirks) normal olduğu bir dünyada geçer. Quirk'siz olan Izuku Midoriya, en büyük kahramandan güç alarak süper kahraman olma yolculuğuna çıkar."
+            },
+            6: {
+                title: "One Piece",
+                image: "animepp/6.png",
+                type: "Aksiyon, Macera",
+                year: "1999",
+                episodes: "1000+/1000+",
+                studio: "Toei Animation",
+                rating: "8.9",
+                description: "One Piece, Monkey D. Luffy'nin hayali olan Korsan Kral olmak için Büyük Hattı keşfetmesini konu alan uzun soluklu bir macera anime serisidir. Dostluk, adalet ve özgürlük temalarını işler."
+            }
+        };
+        
         // Hakkımda butonuna tıklandığında sistem penceresini aç
         aboutBtn.addEventListener('click', function(e) {
             e.preventDefault();
             aboutModal.classList.add('active');
             createParticles(aboutParticlesContainer);
         });
-
+        
         // Sosyal Medya butonuna tıklandığında sistem penceresini aç
         socialBtn.addEventListener('click', function(e) {
             e.preventDefault();
             socialModal.classList.add('active');
             createParticles(socialParticlesContainer);
         });
-
+        
         // Hobiler ve Oyunlar butonuna tıklandığında sistem penceresini aç
         hobbiesBtn.addEventListener('click', function(e) {
             e.preventDefault();
             hobbiesModal.classList.add('active');
             createParticles(hobbiesParticlesContainer);
         });
-
+        
         // Kapatma butonlarına tıklandığında sistem pencerelerini kapat
         aboutCloseBtn.addEventListener('click', function() {
             aboutModal.classList.remove('active');
             clearParticles(aboutParticlesContainer);
         });
-
+        
         socialCloseBtn.addEventListener('click', function() {
             socialModal.classList.remove('active');
             clearParticles(socialParticlesContainer);
         });
-
+        
         hobbiesCloseBtn.addEventListener('click', function() {
             hobbiesModal.classList.remove('active');
             clearParticles(hobbiesParticlesContainer);
         });
-
+        
         // Pencerenin dışına tıklandığında kapat
         aboutModal.addEventListener('click', function(e) {
             if (e.target === aboutModal) {
@@ -1619,21 +2081,21 @@
                 clearParticles(aboutParticlesContainer);
             }
         });
-
+        
         socialModal.addEventListener('click', function(e) {
             if (e.target === socialModal) {
                 socialModal.classList.remove('active');
                 clearParticles(socialParticlesContainer);
             }
         });
-
+        
         hobbiesModal.addEventListener('click', function(e) {
             if (e.target === hobbiesModal) {
                 hobbiesModal.classList.remove('active');
                 clearParticles(hobbiesParticlesContainer);
             }
         });
-
+        
         // Animasyonlu parçacıklar oluştur
         function createParticles(container) {
             clearParticles(container);
@@ -1666,16 +2128,16 @@
                 container.appendChild(particle);
             }
         }
-
+        
         // Parçacıkları temizle
         function clearParticles(container) {
             container.innerHTML = '';
         }
-
+        
         // Hobiler ve Oyunlar sekme değiştirme işlevselliği
         const hobbyTabs = document.querySelectorAll('.hobby-tab');
         const hobbyContents = document.querySelectorAll('.hobby-content');
-
+        
         hobbyTabs.forEach(tab => {
             tab.addEventListener('click', function() {
                 // Aktif sekmeyi kaldır
@@ -1688,14 +2150,61 @@
                 document.getElementById(tabId).classList.add('active');
             });
         });
-
+        
+        // Anime kartlarına tıklama işlevselliği
+        const animeCards = document.querySelectorAll('.anime-card');
+        
+        animeCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const animeId = this.getAttribute('data-id');
+                const anime = animeData[animeId];
+                
+                if (anime) {
+                    // Anime detay modalını doldur
+                    animeDetailImage.setAttribute('src', anime.image);
+                    animeDetailTitle.textContent = anime.title;
+                    animeDetailType.textContent = anime.type;
+                    animeDetailYear.textContent = anime.year;
+                    animeDetailEpisodes.textContent = anime.episodes;
+                    animeDetailStudio.textContent = anime.studio;
+                    animeDetailRatingValue.textContent = anime.rating;
+                    animeDetailDescription.textContent = anime.description;
+                    
+                    // Modalı göster
+                    animeDetailModal.classList.add('active');
+                    
+                    // Mobilde body scroll'u engelle
+                    if (window.innerWidth <= 768) {
+                        document.body.style.overflow = 'hidden';
+                    }
+                }
+            });
+        });
+        
+        // Anime detay modalını kapatma
+        animeDetailCloseBtn.addEventListener('click', function() {
+            animeDetailModal.classList.remove('active');
+            
+            // Mobilde body scroll'u tekrar aktif et
+            document.body.style.overflow = '';
+        });
+        
+        animeDetailModal.addEventListener('click', function(e) {
+            if (e.target === animeDetailModal) {
+                animeDetailModal.classList.remove('active');
+                
+                // Mobilde body scroll'u tekrar aktif et
+                document.body.style.overflow = '';
+            }
+        });
+        
         // Resim Lightbox işlevselliği
         const lightboxModal = document.getElementById('lightboxModal');
         const lightboxImage = document.querySelector('.lightbox-image');
         const lightboxCaption = document.querySelector('.lightbox-caption');
         const lightboxCloseBtn = document.querySelector('.lightbox-close');
         const mediaThumbnails = document.querySelectorAll('.media-thumbnail');
-
+        
         // Medya küçük resimlerine tıklandığında lightbox'ı aç
         mediaThumbnails.forEach(thumbnail => {
             thumbnail.addEventListener('click', function() {
@@ -1705,18 +2214,29 @@
                 lightboxImage.setAttribute('src', imageSrc);
                 lightboxCaption.textContent = imageCaption;
                 lightboxModal.classList.add('active');
+                
+                // Mobilde body scroll'u engelle
+                if (window.innerWidth <= 768) {
+                    document.body.style.overflow = 'hidden';
+                }
             });
         });
-
+        
         // Lightbox kapatma butonuna tıklandığında lightbox'ı kapat
         lightboxCloseBtn.addEventListener('click', function() {
             lightboxModal.classList.remove('active');
+            
+            // Mobilde body scroll'u tekrar aktif et
+            document.body.style.overflow = '';
         });
-
+        
         // Lightbox'ın dışına tıklandığında lightbox'ı kapat
         lightboxModal.addEventListener('click', function(e) {
             if (e.target === lightboxModal) {
                 lightboxModal.classList.remove('active');
+                
+                // Mobilde body scroll'u tekrar aktif et
+                document.body.style.overflow = '';
             }
         });
     </script>
